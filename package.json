@@ -1,7 +1,7 @@
 {
-  "name": "angular-webpack",
-  "version": "1.1.0",
-  "description": "a boilerplate for using angular with webpack",
+  "name": "github-user-cards",
+  "version": "1.0.0",
+  "description": "User cards from github",
   "engines": {
     "node": ">=6.0.0"
   },
