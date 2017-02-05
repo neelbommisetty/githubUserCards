@@ -1,0 +1,46 @@
+
+.active{
+  color: #33528c;
+}
+.sortorder{
+  cursor: pointer;
+  margin: 10px;
+}
+.input-username{
+  width:20vh;
+  height:30px;
+  padding:3px 6px;
+  margin:10px 5px;
+  border-radius: 3px;
+  border-style:groove;
+  box-shadow: 0px 0px 0px;
+}
+.submit-btn {
+  width:10vh;
+  height:30px;
+  background-color: #33528c;
+  padding:3px 6px;
+  color:white;
+  border:none;
+}
+.user-form{
+  border-bottom:1px solid #e1e1e1;
+}
+.card {
+  display: inline-block;
+  border:1px solid #ebebeb;
+  padding: 10px;
+  margin: 10px;
+  width:25%;
+  position:relative;
+  vertical-align: top;
+  .avatar{
+    width:100%;
+  }
+  .delete-user {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+  }
+}

@@ -1,1 +1,35 @@
-<h1>The greeting is {{home.greeting}}</h1>
+<form class="user-form" ng-submit="home.onSubmit($event)">
+  <input type="text" ng-model="home.username" placeholder="github username" class="input-username">
+  <input type="submit" value="Add" class="submit-btn">
+</form>
+<div>
+Sort By:
+  <a class="sortorder" ng-click="home.sortBy($event,'name')" ng-class="{active: home.propertyName === 'name'}">
+    Name <span ng-show="home.propertyName === 'name'" ng-class="{'fa fa-chevron-down': home.reverse}"></span>
+  </a>
+
+  <a class="sortorder" ng-click="home.sortBy($event,'location')" ng-class="{active: home.propertyName === 'location'}">
+    Location <span ng-show="home.propertyName === 'location'" ng-class="{'fa fa-chevron-down': home.reverse}"></span>
+  </a>
+
+  <a  class="sortorder" ng-click="home.sortBy($event,'followers')" ng-class="{active: home.propertyName === 'followers'}">
+    Followers <span ng-show="home.propertyName === 'followers'" ng-class="{'fa fa-chevron-down': home.reverse}"></span>
+  </a>
+
+</div>
+
+<div class="cards-wrapper">
+  <div ng-repeat="user in home.users | orderBy:home.propertyName:home.reverse" class="card" >
+    <a ng-href="{{user.html_url}}" target="_blank">
+      <img ng-src="{{user.avatar_url}}" alt="user avatar" class="avatar">
+      <i class="fa fa-times delete-user" ng-click="home.onDelete($event,$index)"></i>
+      <p><b>{{user.name}}</b></p>
+      <p>
+        Location : {{user.location}}
+      </p>
+      <p>
+        Followers : {{user.followers}}
+      </p>
+    </a>
+  </div>
+</div>
