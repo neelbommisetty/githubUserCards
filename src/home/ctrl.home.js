@@ -1,7 +1,8 @@
 export default class HomeController {
-  constructor(homeService) {
+  constructor(homeService, toastr) {
     this.greeting = 'Hello Bob !';
     this.homeService = homeService;
+    this.toastr = toastr;
     this.propertyName = 'name';
     this.reverse = false;
   }
@@ -17,12 +18,13 @@ export default class HomeController {
       this.username = '';
     }).catch((res) => {
       console.error(res.data); //eslint-disable-line
+      this.toastr.error('No Such User Found!', 'Error Occured');
     });
   }
-  onDelete(e, index) {
+  onDelete(e, id) {
     e.stopPropagation();
     e.preventDefault();
-    this.users = this.users.filter((user, i) => i !== index);
+    this.users = this.users.filter((user) => user.id !== id);
   }
   sortBy(e, propertyName) {
     e.preventDefault();
@@ -31,4 +33,4 @@ export default class HomeController {
   }
 }
 
-HomeController.$inject = ['homeService'];
+HomeController.$inject = ['homeService', 'toastr'];

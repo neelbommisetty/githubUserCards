@@ -9,4 +9,5 @@ export default class HomeService {
     return new HomeService($http);
   }
 }
+HomeService.HomeServiceFactory.$inject = ['$http'];
 
